@@ -1,0 +1,146 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DRISHTI — Flood Intelligence Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LOGIN SCREEN -->
+  <div id="loginScreen" class="login-screen">
+    <div class="login-card">
+      <div class="brand">DRISHTI</div>
+      <p class="muted">Flood Prediction & Mitigation Simulator</p>
+
+      <label>
+        Username
+        <input id="username" value="demo">
+      </label>
+
+      <label>
+        Role
+        <select id="role">
+          <option value="admin">Administrator</option>
+          <option value="user">Citizen / User</option>
+        </select>
+      </label>
+
+      <button class="primary full" id="loginBtn" type="button">
+        Enter DRISHTI
+      </button>
+
+      <p class="hint">
+        Prototype uses the bundled flood dataset as virtual sensor data.
+      </p>
+    </div>
+  </div>
+
+  <!-- MAIN APPLICATION -->
+  <div id="app" class="app hidden">
+    <aside class="sidebar">
+      <div class="brand small">DRISHTI</div>
+
+      <div id="adminNav">
+        <button class="nav active" data-page="overview">🏠 Dashboard</button>
+        <button class="nav" data-page="disasters">⚠️ Flood Data</button>
+        <button class="nav" data-page="datasets">📊 Dataset Center</button>
+        <button class="nav" data-page="sensors">📡 Virtual Sensors</button>
+        <button class="nav" data-page="prediction">🧠 Prediction</button>
+        <button class="nav" data-page="map">🗺️ Risk Map</button>
+        <button class="nav" data-page="volunteers">🤝 Volunteer Network</button>
+      </div>
+
+      <div id="userNav" class="hidden">
+        <button class="nav active" data-page="userHome">🏠 My Dashboard</button>
+        <button class="nav" data-page="userAlerts">🚨 My Alerts</button>
+        <button class="nav" data-page="safe">🛡️ Safe Spots</button>
+        <button class="nav" data-page="help">📞 Emergency Help</button>
+        <button class="nav" data-page="userVolunteers">🤝 Volunteer Network</button>
+      </div>
+
+      <button class="nav logout" id="logoutBtn" type="button">
+        🚪 Logout
+      </button>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1 id="pageTitle">Flood Intelligence Dashboard</h1>
+          <p class="muted">Dataset-driven virtual disaster monitoring</p>
+        </div>
+        <div class="online">
+          <span></span> SYSTEM ONLINE
+        </div>
+      </header>
+
+      <!-- ADMIN PAGES -->
+      <section id="adminPages">
+        <div class="page" id="page-overview"></div>
+        <div class="page hidden" id="page-disasters"></div>
+        <div class="page hidden" id="page-datasets"></div>
+        <div class="page hidden" id="page-sensors"></div>
+        <div class="page hidden" id="page-prediction"></div>
+        <div class="page hidden" id="page-map"></div>
+        <div class="page hidden" id="page-volunteers"></div>
+      </section>
+
+      <!-- WEATHER WARNING -->
+      <div id="liveWeatherWarning" class="section hidden"></div>
+
+      <!-- CITIZEN PAGES -->
+      <section id="userPages" class="hidden">
+        <div class="page" id="page-userHome"></div>
+        <div class="page hidden" id="page-userAlerts"></div>
+        <div class="page hidden" id="page-safe"></div>
+        <div class="page hidden" id="page-help"></div>
+        <div class="page hidden" id="page-userVolunteers"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- FLOOD ALERT MODAL -->
+  <div id="alarm" class="alarm hidden" role="dialog"
+       aria-modal="true" aria-labelledby="alarmHeading">
+    <div class="alarm-card">
+      <div class="alarm-icon">🚨</div>
+      <h2 id="alarmHeading">FLOOD ALERT</h2>
+      <p id="alarmText">High flood-risk conditions detected.</p>
+      <button class="danger" id="closeAlarm" type="button">I UNDERSTAND</button>
+    </div>
+  </div>
+
+  <!-- EXISTING APPLICATION JAVASCRIPT -->
+  <script src="app.js"></script>
+
+  <!-- ALERT CLOSE FIX -->
+  <script>
+    (function () {
+      const alarm = document.getElementById("alarm");
+      const closeButton = document.getElementById("closeAlarm");
+
+      function closeAlarm() {
+        if (!alarm) return;
+        alarm.classList.add("hidden");
+        alarm.style.display = "none";
+      }
+
+      if (closeButton) {
+        closeButton.addEventListener("click", function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+          closeAlarm();
+        });
+      }
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") closeAlarm();
+      });
+    })();
+  </script>
+
+</body>
+</html>

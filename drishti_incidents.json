@@ -1,0 +1,38 @@
+[
+  {
+    "id": "DRISHTI-ALERT-10",
+    "timestamp": "2026-10-29T17:27:19.836Z",
+    "level": "HIGH",
+    "score": 69.58,
+    "type": "VIRTUAL SENSOR",
+    "message": "⚠️ HIGH FLOOD RISK. High-risk flood conditions detected. Stay alert and prepare for possible flooding. Reason: elevated water level, high river discharge",
+    "action": "Monitor updates closely and prepare for possible evacuation.",
+    "latitude": 8.59695033457827,
+    "longitude": 93.69614504577024,
+    "status": "NEW"
+  },
+  {
+    "id": "DRISHTI-ALERT-0",
+    "timestamp": "2026-10-29T17:26:54.841Z",
+    "level": "HIGH",
+    "score": 69.29,
+    "type": "VIRTUAL SENSOR",
+    "message": "⚠️ HIGH FLOOD RISK. High-risk flood conditions detected. Stay alert and prepare for possible flooding. Reason: high river discharge",
+    "action": "Monitor updates closely and prepare for possible evacuation.",
+    "latitude": 18.861663446573512,
+    "longitude": 78.83558373553426,
+    "status": "NEW"
+  },
+  {
+    "id": "DRISHTI-ALERT-15",
+    "timestamp": "2026-10-29T07:26:07.290Z",
+    "level": "HIGH",
+    "score": 68.06,
+    "type": "VIRTUAL SENSOR",
+    "message": "⚠️ HIGH FLOOD RISK. High-risk flood conditions detected. Stay alert and prepare for possible flooding. Reason: elevated rainfall conditions, historical flood activity",
+    "action": "Monitor updates closely and prepare for possible evacuation.",
+    "latitude": 13.31873078574958,
+    "longitude": 68.40831023520383,
+    "status": "NEW"
+  }
+]
